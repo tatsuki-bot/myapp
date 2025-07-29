@@ -12,6 +12,7 @@ const client = new MongoClient(uri);
 router.use(cors());
 
 router.get('/', async (req, res) => {
+    await client.connect();
 // データベース、コレクションを指定
 const database = client.db('notes');
 const notes = database.collection('notes');
